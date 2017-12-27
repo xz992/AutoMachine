@@ -90,6 +90,7 @@ namespace AutoMachineModel
 
 
 
+
         //模切机
         public static TextBox       MatchScore_textBox          = new TextBox();
     }
