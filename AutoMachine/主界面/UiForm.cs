@@ -82,6 +82,15 @@ namespace AutoMachine
         public void ModelLayer_ProgrameMakeUI_Init()
         {
             //Model.MatchScore_textBox = this.MatchScore_textBox;
+
+
+
+
+
+
+
+
+
         }
 
         //UI层UI初始化
