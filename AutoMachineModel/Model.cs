@@ -35,6 +35,9 @@ namespace AutoMachineModel
 
 
 
+
+
+
         public static string        WindowsHeightOffset = "";
         public static string        WindowsWidthOffset = "";
         public static string        ImageWidth = "";
@@ -84,6 +87,8 @@ namespace AutoMachineModel
         public  static double[]     AcquisionImageTime          = new double[8];
         public  static int          AccessImageIndex            =  2;
  
+
+
 
         //模切机
         public static TextBox       MatchScore_textBox          = new TextBox();
