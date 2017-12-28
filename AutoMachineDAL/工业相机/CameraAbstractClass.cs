@@ -10,17 +10,17 @@ namespace AutoMachineDAL
 
         public bool CameraWorkMode = false;//CameraWorkMode=true:软件触发;CameraWorkMode=flase:硬件触发;
 
-
         public CameraOperator m_pOperator = new CameraOperator();
 
         public abstract void OpenCamera();
+  
+        public abstract void StopGrabbing();
+        public abstract void CloseCamera();
+        
 
         public abstract void EnableSoftTrigger();
         public abstract void ContinuousAcquisiton();         
-        
         public abstract void EnableHardTrigger();
-
-        public abstract void CloseCamera();
 
     }
 }

@@ -13,7 +13,7 @@ namespace AutoMachineBLL
     public class CutMachineBLL
     {
         private AutoMachineDAL.DAL CutMachineDal;                                 //数据访问层
-       
+
         public CutMachineBLL()
         {
             CutMachineDal = new AutoMachineDAL.DAL();
@@ -21,7 +21,7 @@ namespace AutoMachineBLL
 
         public void BLL_Init()
         {
-                 CutMachineDal.MotionObject.InitMotionCard();
+            CutMachineDal.MotionObject.InitMotionCard();
         }
 
         public void BLL_LoadProjectInfo()
@@ -42,23 +42,22 @@ namespace AutoMachineBLL
 
         public void BLL_Play()
         {
-
             CutMachineDal.CameraObject.OpenCamera();
-  
-            if (Model.CameraFound == false)
-                return;
-         
-                //打开相机
-                if (!Model.TriggerMode)
+            if (Model.m_bGrabbing)
+            {
+                switch (Model.m_bTriggerMode)
                 {
-                        
-                    CutMachineDal.TxtFile.DisplayLog("打开相机,当前工作模式为连续采集\n", Model.UiLog_textBox);
-                    
-                    
-                    Thread.Sleep(200);
-               
+                    case 0:
+                        CutMachineDal.TxtFile.DisplayLog("开始采集,当前工作模式为连续采集!\n", Model.UiLog_textBox);
+                        break;
+                    case 1:
+                        CutMachineDal.TxtFile.DisplayLog("开始采集,当前工作模式为连续采集!\n", Model.UiLog_textBox);
+                        break;
+                    default:
+                        CutMachineDal.TxtFile.DisplayLog("开始采集,当前工作模式未知!\n", Model.UiLog_textBox);
+                        break;
                 }
-      
+            }
 
         }
 
@@ -69,35 +68,25 @@ namespace AutoMachineBLL
 
         public void BLL_Stop()
         {
-   
-               
-                CutMachineDal.CameraObject.CloseCamera();
-                 CutMachineDal.TxtFile.DisplayLog("停止采集图像\n", Model.UiLog_textBox);
-
+            CutMachineDal.CameraObject.StopGrabbing();
+            CutMachineDal.TxtFile.DisplayLog("停止采集图像\n", Model.UiLog_textBox);
 
         }
 
         public void BLL_Exit()
         {
-       
-
-                CutMachineDal.CameraObject.CloseCamera();
-
-                
-        
-                CutMachineDal.TxtFile.DisplayLog("停止采集图像\n", Model.UiLog_textBox);
-
-
-            CutMachineDal.MotionObject.CloseMotionCard();
-
+            CutMachineDal.CameraObject.StopGrabbing();
+            CutMachineDal.CameraObject.CloseCamera();
+            CutMachineDal.TxtFile.DisplayLog("停止采集图像\n", Model.UiLog_textBox);
+            //       CutMachineDal.MotionObject.CloseMotionCard();
         }
 
         public void BLL_DisplayLog(string Message)
         {
-            CutMachineDal.TxtFile.DisplayLog(Message+"\n", Model.UiLog_textBox);
+            CutMachineDal.TxtFile.DisplayLog(Message + "\n", Model.UiLog_textBox);
         }
 
-        public DAL  BLL_GetDalLayer()
+        public DAL BLL_GetDalLayer()
         {
             return CutMachineDal;
         }
@@ -117,10 +106,10 @@ namespace AutoMachineBLL
             HOperatorSet.SetWindowAttr("background_color", "blue");
             HOperatorSet.OpenWindow(m_lWindowRow, m_lWindowColumn, (HTuple)Model.VideoWindow_pictureBox.Width, (HTuple)Model.VideoWindow_pictureBox.Height, Farther_windowHandle, "visible", "", out Model.MainUI_Camera_WindowID);
             HOperatorSet.SetPart(Model.MainUI_Camera_WindowID, 0, 0, Model.VideoWindow_pictureBox.Height + int.Parse(Model.WindowsHeightOffset), Model.VideoWindow_pictureBox.Width + int.Parse(Model.WindowsWidthOffset));
-                
+
         }
-     
-       
+
+
     }//类结束
 
 }//命名空间结束

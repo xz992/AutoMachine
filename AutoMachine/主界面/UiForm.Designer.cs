@@ -125,11 +125,9 @@
             this.grouper6 = new CodeVendor.Controls.Grouper();
             this.MainUI_tabPage = new System.Windows.Forms.TabPage();
             this.grouper4 = new CodeVendor.Controls.Grouper();
-            this.cbDeviceList = new System.Windows.Forms.ComboBox();
-            this.StopTest_button = new System.Windows.Forms.Button();
-            this.StartTest_button = new System.Windows.Forms.Button();
-            this.PlayVideo_button = new System.Windows.Forms.Button();
-            this.Exit_button = new System.Windows.Forms.Button();
+            this.bnStopTest = new System.Windows.Forms.Button();
+            this.bnPlayVideo = new System.Windows.Forms.Button();
+            this.bnExit = new System.Windows.Forms.Button();
             this.grouper3 = new CodeVendor.Controls.Grouper();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ProductNgCount = new System.Windows.Forms.TextBox();
@@ -1209,11 +1207,9 @@
             this.grouper4.BackgroundGradientMode = CodeVendor.Controls.Grouper.GroupBoxGradientMode.Vertical;
             this.grouper4.BorderColor = System.Drawing.Color.Black;
             this.grouper4.BorderThickness = 1F;
-            this.grouper4.Controls.Add(this.cbDeviceList);
-            this.grouper4.Controls.Add(this.StopTest_button);
-            this.grouper4.Controls.Add(this.StartTest_button);
-            this.grouper4.Controls.Add(this.PlayVideo_button);
-            this.grouper4.Controls.Add(this.Exit_button);
+            this.grouper4.Controls.Add(this.bnStopTest);
+            this.grouper4.Controls.Add(this.bnPlayVideo);
+            this.grouper4.Controls.Add(this.bnExit);
             this.grouper4.CustomGroupBoxColor = System.Drawing.Color.White;
             this.grouper4.GroupImage = null;
             this.grouper4.GroupTitle = "操作区";
@@ -1229,65 +1225,44 @@
             this.grouper4.TabIndex = 9;
             this.grouper4.TabStop = false;
             // 
-            // cbDeviceList
+            // bnStopTest
             // 
-            this.cbDeviceList.FormattingEnabled = true;
-            this.cbDeviceList.Location = new System.Drawing.Point(18, 36);
-            this.cbDeviceList.Name = "cbDeviceList";
-            this.cbDeviceList.Size = new System.Drawing.Size(306, 20);
-            this.cbDeviceList.TabIndex = 10;
+            this.bnStopTest.BackColor = System.Drawing.Color.Blue;
+            this.bnStopTest.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
+            this.bnStopTest.ForeColor = System.Drawing.Color.White;
+            this.bnStopTest.Location = new System.Drawing.Point(64, 90);
+            this.bnStopTest.Name = "bnStopTest";
+            this.bnStopTest.Size = new System.Drawing.Size(116, 42);
+            this.bnStopTest.TabIndex = 5;
+            this.bnStopTest.Text = "停止测试";
+            this.bnStopTest.UseVisualStyleBackColor = false;
+            this.bnStopTest.Click += new System.EventHandler(this.Stop);
             // 
-            // StopTest_button
+            // bnPlayVideo
             // 
-            this.StopTest_button.BackColor = System.Drawing.Color.Blue;
-            this.StopTest_button.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
-            this.StopTest_button.ForeColor = System.Drawing.Color.White;
-            this.StopTest_button.Location = new System.Drawing.Point(23, 131);
-            this.StopTest_button.Name = "StopTest_button";
-            this.StopTest_button.Size = new System.Drawing.Size(116, 42);
-            this.StopTest_button.TabIndex = 5;
-            this.StopTest_button.Text = "停止测试";
-            this.StopTest_button.UseVisualStyleBackColor = false;
-            this.StopTest_button.Click += new System.EventHandler(this.Stop);
+            this.bnPlayVideo.BackColor = System.Drawing.Color.Blue;
+            this.bnPlayVideo.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
+            this.bnPlayVideo.ForeColor = System.Drawing.Color.White;
+            this.bnPlayVideo.Location = new System.Drawing.Point(65, 30);
+            this.bnPlayVideo.Name = "bnPlayVideo";
+            this.bnPlayVideo.Size = new System.Drawing.Size(116, 42);
+            this.bnPlayVideo.TabIndex = 2;
+            this.bnPlayVideo.Text = "开始测试";
+            this.bnPlayVideo.UseVisualStyleBackColor = false;
+            this.bnPlayVideo.Click += new System.EventHandler(this.PlayVideo);
             // 
-            // StartTest_button
+            // bnExit
             // 
-            this.StartTest_button.BackColor = System.Drawing.Color.Blue;
-            this.StartTest_button.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
-            this.StartTest_button.ForeColor = System.Drawing.Color.White;
-            this.StartTest_button.Location = new System.Drawing.Point(197, 83);
-            this.StartTest_button.Name = "StartTest_button";
-            this.StartTest_button.Size = new System.Drawing.Size(116, 42);
-            this.StartTest_button.TabIndex = 4;
-            this.StartTest_button.Text = "开始测试";
-            this.StartTest_button.UseVisualStyleBackColor = false;
-            this.StartTest_button.Click += new System.EventHandler(this.StartTest_button_Click);
-            // 
-            // PlayVideo_button
-            // 
-            this.PlayVideo_button.BackColor = System.Drawing.Color.Blue;
-            this.PlayVideo_button.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
-            this.PlayVideo_button.ForeColor = System.Drawing.Color.White;
-            this.PlayVideo_button.Location = new System.Drawing.Point(23, 83);
-            this.PlayVideo_button.Name = "PlayVideo_button";
-            this.PlayVideo_button.Size = new System.Drawing.Size(116, 42);
-            this.PlayVideo_button.TabIndex = 2;
-            this.PlayVideo_button.Text = "打开相机";
-            this.PlayVideo_button.UseVisualStyleBackColor = false;
-            this.PlayVideo_button.Click += new System.EventHandler(this.PlayVideo);
-            // 
-            // Exit_button
-            // 
-            this.Exit_button.BackColor = System.Drawing.Color.Blue;
-            this.Exit_button.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
-            this.Exit_button.ForeColor = System.Drawing.Color.White;
-            this.Exit_button.Location = new System.Drawing.Point(198, 131);
-            this.Exit_button.Name = "Exit_button";
-            this.Exit_button.Size = new System.Drawing.Size(116, 42);
-            this.Exit_button.TabIndex = 3;
-            this.Exit_button.Text = "退出软件";
-            this.Exit_button.UseVisualStyleBackColor = false;
-            this.Exit_button.Click += new System.EventHandler(this.Exit);
+            this.bnExit.BackColor = System.Drawing.Color.Blue;
+            this.bnExit.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
+            this.bnExit.ForeColor = System.Drawing.Color.White;
+            this.bnExit.Location = new System.Drawing.Point(63, 151);
+            this.bnExit.Name = "bnExit";
+            this.bnExit.Size = new System.Drawing.Size(116, 42);
+            this.bnExit.TabIndex = 3;
+            this.bnExit.Text = "退出软件";
+            this.bnExit.UseVisualStyleBackColor = false;
+            this.bnExit.Click += new System.EventHandler(this.Exit);
             // 
             // grouper3
             // 
@@ -1470,7 +1445,7 @@
             this.grouper1.ShadowColor = System.Drawing.Color.DarkGray;
             this.grouper1.ShadowControl = false;
             this.grouper1.ShadowThickness = 3;
-            this.grouper1.Size = new System.Drawing.Size(410, 357);
+            this.grouper1.Size = new System.Drawing.Size(335, 357);
             this.grouper1.TabIndex = 10;
             this.grouper1.TabStop = false;
             // 
@@ -1676,10 +1651,9 @@
         private CodeVendor.Controls.Grouper grouper6;
         private System.Windows.Forms.TabPage MainUI_tabPage;
         private CodeVendor.Controls.Grouper grouper4;
-        private System.Windows.Forms.Button StopTest_button;
-        private System.Windows.Forms.Button StartTest_button;
-        private System.Windows.Forms.Button PlayVideo_button;
-        private System.Windows.Forms.Button Exit_button;
+        private System.Windows.Forms.Button bnStopTest;
+        private System.Windows.Forms.Button bnPlayVideo;
+        private System.Windows.Forms.Button bnExit;
         private CodeVendor.Controls.Grouper grouper3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox ProductNgCount;
@@ -1765,7 +1739,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button Reinput__button;
         private System.Windows.Forms.Button Calib_button;
-        private System.Windows.Forms.ComboBox cbDeviceList;
         private System.Windows.Forms.Button bnSetParam;
         private System.Windows.Forms.Button bnGetParam;
         private System.Windows.Forms.Label label28;

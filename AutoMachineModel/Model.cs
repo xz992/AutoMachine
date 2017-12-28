@@ -34,10 +34,6 @@ namespace AutoMachineModel
         public  static string       m_szAutoMachineName         = "";
 
 
-
-
-
-
         public static string        WindowsHeightOffset = "";
         public static string        WindowsWidthOffset = "";
         public static string        ImageWidth = "";
@@ -59,15 +55,10 @@ namespace AutoMachineModel
         /// <summary>
         /// Camera Related
         /// </summary>
-
-      
-        public static bool          CameraFound                 = false;
-
-        public static bool TriggerMode = false;                 //TriggerMode=true触发采集;TriggerMode=flase 连续采集;
-
-        public static bool          TriggerSource = true;       //TriggerSource=true:软件触发;TriggerSource=flase:硬件触发;
-        public  static bool         TestMode                    = false;
-
+        public static bool          m_bCameraFound              = false;
+        public static bool          m_bCameraOpened             = false;
+        public static bool          m_bGrabbing                 = false;
+        public static uint          m_bTriggerMode              = 0;                 //0 连续, 1 触发
 
 
         public static double dTimeStart                         = 0.0;
@@ -83,9 +74,9 @@ namespace AutoMachineModel
         public static int nAxis = 0;
 
         //线扫测试机
-        public  static HObject[]    RawImageSequence            = new HObject[8];
-        public  static double[]     AcquisionImageTime          = new double[8];
-        public  static int          AccessImageIndex            =  2;
+        //public  static HObject[]    RawImageSequence            = new HObject[8];
+        //public  static double[]     AcquisionImageTime          = new double[8];
+        //public  static int          AccessImageIndex            =  2;
  
 
 

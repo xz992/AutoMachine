@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="CutMachineBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoMachineDAL\AutoMachineDAL.csproj">

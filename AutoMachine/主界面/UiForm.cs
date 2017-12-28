@@ -12,7 +12,6 @@ using AutoMachineBLL;
 using AutoMachineModel;
 using AutoMachineDAL;
 
-
 namespace AutoMachine
 {
     public partial class UI_Form : Form
@@ -45,14 +44,11 @@ namespace AutoMachine
 
         }
         //UI初始化
-        #region
         //系统参数初始化
         public void SystemParameter_Init()
         {
-            //true;在线测试;false:离线测试
-            Model.TestMode = true;
             //true:软触发;false:硬触发
-            Model.TriggerMode = true;
+            Model.m_bTriggerMode = 0;
             //true:存图;false:不存图
             Model.SaveImageFlag = false;
             //设备项目名称
@@ -66,7 +62,7 @@ namespace AutoMachine
 
             Model.ExposureTimeAbs = this.ExposureTime_numericUpDown.Value.ToString();
 
-            this.StopTest_button.Enabled = false;
+            this.bnStopTest.Enabled = false;
 
         }
 
@@ -237,9 +233,6 @@ namespace AutoMachine
             }
 
         }
-
-        //加载Flash
-
         //加载状态栏信息
         public void LoadCompanyInformation()
         {
@@ -247,9 +240,6 @@ namespace AutoMachine
             CustomerName_toolStripStatusLabel.Text = "当前用户:  客户";
             CurrentDate_toolStripStatusLabel.Text = "当前日期:" + System.DateTime.Now.ToString("yyyy年MM月dd日");
         }
-
-        #endregion
-
         //主界面
         #region
         //视频播放
@@ -257,11 +247,10 @@ namespace AutoMachine
         {
             bll.BLL_Play();
 
-            if (Model.CameraFound == true)
+            if (Model.m_bGrabbing)
             {
-                this.PlayVideo_button.Enabled = false;
-                this.StopTest_button.Enabled = true;
-
+                this.bnPlayVideo.Enabled = false;
+                this.bnStopTest.Enabled = true;
             }
       
         }
@@ -269,21 +258,24 @@ namespace AutoMachine
         //停止采集
         private void Stop(object sender, EventArgs e)
         {
-            this.StopTest_button.Enabled = false;
-            this.PlayVideo_button.Enabled = true;
             bll.BLL_Stop();
+
+            if (!Model.m_bGrabbing)
+            {
+                this.bnPlayVideo.Enabled = true;
+                this.bnStopTest.Enabled = false;
+            }
+
+
         }
 
         //软件退出
         private void Exit(object sender, EventArgs e)
         {
             bll.BLL_GetDalLayer().IniFile.WriteString(Model.m_szAutoMachineName + "_AccessControl", "AccessEnable", "NO", Directory.GetCurrentDirectory() + "/Setting.ini");
-
             bll.BLL_Exit();
-
             //关闭定时器
             this.timer.Enabled = false;
-
             this.Close();
         }
  
